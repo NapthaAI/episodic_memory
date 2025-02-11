@@ -4,32 +4,22 @@
         "module": {"name": "episodic_memory"},
         "node": {"ip": "localhost"},
         "config": {
-            "storage_type": "db",
-            "path": "episodic_memory",
-            "options": {
-                "query_col": "title",
-                "answer_col": "text"
-            },
-            "schema": {
-                "memory_id": {"type": "INTEGER", "primary_key": true},
-                "task_query": {"type": "TEXT"},
-                "cognitive_steps": {"type": "jsonb"},
-                "total_reward": {"type": "INTEGER"},
-                "strategy_update": {"type": "jsonb"},
-                "created_at": {"type": "TEXT"},
-                "metadata": {"type": "jsonb"}
-            },
-            "embedder": {
-                "model": "text-embedding-3-small",
-                "chunk_size": 1000,
-                "chunk_overlap": 200,
-                "separators": ["\n\n", "\n", ". ", " ", ""],
-                "embedding_dim": 1536
-            },
-            "retriever": {
-                "type": "vector",
-                "field": "embedding",
-                "k": 5
+            "storage_config": {
+                "storage_type": "db",
+                "path": "episodic_memory",
+                "storage_schema": {
+                    "memory_id": {"type": "INTEGER", "primary_key": true},
+                    "task_query": {"type": "TEXT"},
+                    "cognitive_steps": {"type": "jsonb"},
+                    "total_reward": {"type": "INTEGER"},
+                    "strategy_update": {"type": "jsonb"},
+                    "created_at": {"type": "TEXT"},
+                    "metadata": {"type": "jsonb"}
+                },
+                "options": {
+                    "query_col": "title",
+                    "answer_col": "text"
+                }
             }
         }
     }
